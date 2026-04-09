@@ -1,0 +1,245 @@
+
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+.card{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:1rem 1.25rem;margin-bottom:.5rem}
+.sec{font-size:11px;font-weight:500;color:var(--color-text-tertiary);letter-spacing:.08em;text-transform:uppercase;margin:1.25rem 0 .5rem}
+.badge{display:inline-block;font-size:11px;font-weight:500;padding:2px 8px;border-radius:4px;margin-left:4px}
+.red{background:#FCEBEB;color:#A32D2D}.amber{background:#FAEEDA;color:#854F0B}.green{background:#EAF3DE;color:#3B6D11}.blue{background:#E6F1FB;color:#185FA5}.purple{background:#EEEDFE;color:#3C3489}
+.row{display:flex;justify-content:space-between;align-items:baseline;padding:5px 0;border-bottom:0.5px solid var(--color-border-tertiary);gap:8px}
+.row:last-child{border-bottom:none}
+.rl{font-size:13px;color:var(--color-text-secondary);flex:1}
+.rv{font-size:13px;font-weight:500;color:var(--color-text-primary);text-align:right;flex-shrink:0}
+.tw{display:flex;align-items:flex-start;gap:10px;padding:.6rem 0;border-bottom:0.5px solid var(--color-border-tertiary)}
+.tw:last-child{border-bottom:none}
+.dot{width:9px;height:9px;border-radius:50%;flex-shrink:0;margin-top:4px}
+.dr{background:#E24B4A}.da{background:#EF9F27}.dg{background:#639922}.dp{background:#7F77DD}
+.tt{font-size:13px;font-weight:500;color:var(--color-text-primary);margin-bottom:2px}
+.ts{font-size:12px;color:var(--color-text-secondary);line-height:1.5}
+.tabs{display:flex;border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-md);overflow:hidden;margin-bottom:1rem}
+.tab{flex:1;padding:.4rem;font-size:11px;text-align:center;cursor:pointer;background:var(--color-background-secondary);color:var(--color-text-secondary);border:none;border-right:0.5px solid var(--color-border-tertiary)}
+.tab:last-child{border-right:none}
+.tab.on{background:var(--color-background-primary);color:var(--color-text-primary);font-weight:500}
+.panel{display:none}.panel.on{display:block}
+.note{font-size:12px;color:var(--color-text-secondary);padding:.6rem .75rem;background:var(--color-background-secondary);border-radius:var(--border-radius-md);margin-top:.5rem;line-height:1.5}
+.flash{background:#FCEBEB;border:0.5px solid #F7C1C1;border-radius:var(--border-radius-md);padding:.65rem .85rem;margin-bottom:.45rem}
+.flash-l{font-size:11px;font-weight:500;color:#A32D2D;margin-bottom:.2rem}
+.flash-t{font-size:12px;color:#501313;line-height:1.5}
+.alert{background:#FAEEDA;border:0.5px solid #FAC775;border-radius:var(--border-radius-md);padding:.65rem .85rem;margin-bottom:.45rem}
+.alert-l{font-size:11px;font-weight:500;color:#854F0B;margin-bottom:.2rem}
+.alert-t{font-size:12px;color:#633806;line-height:1.5}
+.good{background:#EAF3DE;border:0.5px solid #C0DD97;border-radius:var(--border-radius-md);padding:.65rem .85rem;margin-bottom:.45rem}
+.good-l{font-size:11px;font-weight:500;color:#3B6D11;margin-bottom:.2rem}
+.good-t{font-size:12px;color:#173404;line-height:1.5}
+.shift{background:#EEEDFE;border:0.5px solid #AFA9EC;border-radius:var(--border-radius-md);padding:.65rem .85rem;margin-bottom:.45rem}
+.shift-l{font-size:11px;font-weight:500;color:#3C3489;margin-bottom:.2rem}
+.shift-t{font-size:12px;color:#26215C;line-height:1.5}
+table{width:100%;border-collapse:collapse;font-size:12px}
+th{font-size:11px;font-weight:500;color:var(--color-text-tertiary);text-align:center;padding:5px 3px;border-bottom:0.5px solid var(--color-border-tertiary)}
+th:first-child{text-align:left}
+td{padding:4px 3px;text-align:center;border-bottom:0.5px solid var(--color-border-tertiary)}
+td:first-child{text-align:left;font-size:11px;color:var(--color-text-secondary)}
+tr:last-child td{border-bottom:none}
+.sc{font-weight:500;font-size:13px}
+.v1{color:#E24B4A;font-weight:500;font-size:13px}
+.v0{color:var(--color-text-tertiary);font-size:13px}
+.vm1{color:#3B6D11;font-weight:500;font-size:13px}
+.vna{color:var(--color-text-tertiary);font-size:13px;font-style:italic}
+</style>
+
+<div style="padding:1rem 0">
+
+<div style="display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:.75rem">
+  <div>
+    <div style="font-size:18px;font-weight:500;color:var(--color-text-primary)">Fracture board + watch score — Mar 16</div>
+    <div style="font-size:12px;color:var(--color-text-secondary)">Day 17 · Status: <span style="color:#E24B4A;font-weight:500">Red / Operational</span> · Board: <span style="color:#E24B4A;font-weight:500">8.5/10</span></div>
+  </div>
+  <div style="text-align:right;flex-shrink:0">
+    <div style="font-size:26px;font-weight:500;color:#E24B4A">6 / 6</div>
+    <div style="font-size:11px;color:var(--color-text-tertiary)">Critical — Day 17</div>
+  </div>
+</div>
+
+<div class="tabs">
+  <button class="tab on" onclick="sw('score')">Watch score</button>
+  <button class="tab" onclick="sw('falsify')">Falsification test</button>
+  <button class="tab" onclick="sw('delta')">Key deltas</button>
+  <button class="tab" onclick="sw('log')">17-day log</button>
+</div>
+
+<!-- WATCH SCORE -->
+<div id="score" class="panel on">
+  <div class="sec">Domain coding — March 16, 2026</div>
+
+  <div class="tw">
+    <div class="dot dr"></div>
+    <div style="flex:1">
+      <div style="display:flex;align-items:baseline;justify-content:space-between"><div class="tt">M — Missile barrage</div><div class="v1">1</div></div>
+      <div class="ts">Iran fired 4 salvos at Israel overnight into Mar 16. Bahrain airport fire from drone. Kuwait building damaged. Saudi Arabia: 6 ballistic missiles intercepted at Prince Sultan Air Base + eastern drones. Iran launched 250+ ballistic missiles and 1,500 drones at UAE since Feb 28 per UAE presidential adviser. Source: Times of Israel, Al Jazeera live Mar 16.</div>
+    </div>
+  </div>
+
+  <div class="tw">
+    <div class="dot dr"></div>
+    <div style="flex:1">
+      <div style="display:flex;align-items:baseline;justify-content:space-between"><div class="tt">S — Strike surge</div><div class="v1">1</div></div>
+      <div class="ts">IDF struck 200+ targets in western and central Iran — Tehran, Shiraz, Tabriz simultaneously. IDF "targeted ground operation" in southern Lebanon continuing, 91st Division buffer zone expansion. IDF killed IRGC commander. F-35 air-to-air kill confirmed (Yak-130 over Tehran). Source: Times of Israel, IDF statements Mar 15–16.</div>
+    </div>
+  </div>
+
+  <div class="tw">
+    <div class="dot dr"></div>
+    <div style="flex:1">
+      <div style="display:flex;align-items:baseline;justify-content:space-between"><div class="tt">I — Interception / warning spike</div><div class="v1">1</div></div>
+      <div class="ts">5-country simultaneous interception: Israel, Bahrain, Kuwait, Saudi Arabia, UAE. Turkish Patriot deployed near Kürecik NATO radar. Qatar intercepted 4 ballistic missiles. NATO Article 4 consultations ongoing. Hezbollah drone struck RAF Akrotiri on Cyprus — first direct hit on sovereign NATO territory (Britannica Mar 16). Source: Dawn, Times of Israel, Britannica Mar 16.</div>
+    </div>
+  </div>
+
+  <div class="tw">
+    <div class="dot dr"></div>
+    <div style="flex:1">
+      <div style="display:flex;align-items:baseline;justify-content:space-between"><div class="tt">MD — Maritime disruption</div><div class="v1">1</div></div>
+      <div class="ts">Hormuz effectively choked Day 17. Iran targeting USS Gerald Ford logistics centers. Dubai airport fuel fire (resumed). Al-Dhafra struck. Bahrain airport fire rerouting Gulf Air to Dammam. AWS data centers in UAE struck by drones — web infrastructure outages. ~1,000 tankers stalled. Hornuz stranglehold confirmed by AP headline Mar 16. Source: AP, Wikipedia 2026 Iran war Mar 16.</div>
+    </div>
+  </div>
+
+  <div class="tw">
+    <div class="dot dr"></div>
+    <div style="flex:1">
+      <div style="display:flex;align-items:baseline;justify-content:space-between"><div class="tt">E — Energy / market shock</div><div class="v1">1</div></div>
+      <div class="ts">OIL INFRASTRUCTURE TRIPWIRE: Israel struck Iranian oil facilities — massive fires near Tehran, WHO health warning (NPR Mar 16). Trump admin asked Israel to stop. Brent spiked to $106.50 before falling back to $100–103 range on "war ending soon" market speculation. S&P best day in 5 weeks. AP headline: "Falling oil prices send Wall Street toward best day since Iran war began." See falsification test tab — this intraday drop is a falsification candidate, not confirmation of easing. Source: NPR, AP, Al Jazeera, Times of Israel Mar 16.</div>
+    </div>
+  </div>
+
+  <div class="tw">
+    <div class="dot dr"></div>
+    <div style="flex:1">
+      <div style="display:flex;align-items:baseline;justify-content:space-between"><div class="tt">RS — Regional spillover</div><div class="v1">1</div></div>
+      <div class="ts">RAF Akrotiri Cyprus struck — sovereign NATO territory direct hit (Britannica). Aramco Ras Tanura refinery targeted. 3 AWS data centers in UAE struck. IRGC vowed to "pursue and kill" Netanyahu. Oman FM + Egypt FM joint ceasefire call. Iran declared USS Gerald Ford's regional logistics network as legitimate targets. Source: Britannica, Wikipedia Mar 16, Dawn live.</div>
+    </div>
+  </div>
+
+  <div class="tw">
+    <div class="dot dg"></div>
+    <div style="flex:1">
+      <div style="display:flex;align-items:baseline;justify-content:space-between"><div class="tt">DO — Diplomacy offset</div><div class="v0">0</div></div>
+      <div class="ts">Iran FM: "We never asked for a ceasefire, never asked for negotiation" (CBS Face the Nation). Trump admin rebuffed ME allies' mediation. Oman/Egypt joint call not a framework. Lebanon Dermer track real but not publicly operative (Sa'ar denial stands). EU Kallas UN concept early-stage. IRGC: opposed to ceasefire because "losing Hormuz would determine outcome of war." No threshold met. Source: AP, Iran International, Al Jazeera Mar 16. Coded 0.</div>
+    </div>
+  </div>
+
+  <div class="card" style="margin-top:.75rem">
+    <div class="row"><span class="rl" style="font-weight:500">Total score</span><span class="rv" style="color:#E24B4A;font-size:16px">6 / 6</span></div>
+    <div class="row"><span class="rl">Classification</span><span class="rv badge red">Critical</span></div>
+    <div class="row"><span class="rl">Oil infrastructure tripwire</span><span class="rv badge red">tripped — Israeli strikes on Iranian oil</span></div>
+    <div class="row"><span class="rl">NATO territory direct hit</span><span class="rv badge red">RAF Akrotiri, Cyprus</span></div>
+    <div class="row"><span class="rl">Oil price intraday — falsification test active</span><span class="rv badge amber">Brent $100–103, watch 48hrs</span></div>
+  </div>
+</div>
+
+<!-- FALSIFICATION TEST -->
+<div id="falsify" class="panel">
+  <div class="sec">Falsification test — is today's oil drop a real signal?</div>
+
+  <div class="alert">
+    <div class="alert-l">What happened</div>
+    <div class="alert-t">Brent spiked to $106.50 this morning, then fell ~5% to $100–103 range. S&P 500 up 1.2% — best day in 5 weeks. AP headline: "Falling oil prices send Wall Street toward its best day since Iran war began." On the surface this looks like the energy falsification condition: "oil normalizes despite continued disruption."</div>
+  </div>
+
+  <div class="good">
+    <div class="good-l">Why this does NOT meet the falsification threshold</div>
+    <div class="good-t">The coding doctrine states: "Continuation is not an event — only deviation from baseline is scored." The falsification condition for E was set as: "Brent stays below $75–$80 for a sustained period (2–3 weeks) despite no resolution to the maritime security crisis." Today's move is: (1) a same-day intraday reversal, not sustained; (2) still above $100 — not in the falsification range; (3) driven entirely by Trump's "war ending very soon" comment, not by any change in physical supply; (4) explicitly noted by AP as "such moves have been quick to reverse since the war began." This is market pricing of a political statement, not pricing of a supply change. The physical disruption is unchanged — ~1,000 tankers still stalled, Hormuz still effectively choked, oil facilities still burning. Source: AP Mar 16.</div>
+  </div>
+
+  <div class="tw" style="padding-top:.5rem">
+    <div class="dot da"></div>
+    <div>
+      <div class="tt">What would actually trigger the falsification condition</div>
+      <div class="ts">Brent below $80 sustained for 2–3 weeks without maritime normalization. That requires either: (a) a credible ceasefire announcement from Iran, (b) escorts confirmed operational and flowing commercial tankers, or (c) demand destruction deep enough to overwhelm the supply shock. None of these are present today. The $100 level with intraday volatility is "elevated but unstable" — exactly what the market looks like when it is pricing conflicting political statements, not resolved supply.</div>
+    </div>
+  </div>
+
+  <div class="tw">
+    <div class="dot da"></div>
+    <div>
+      <div class="tt">The "war ending soon" signal — how to read it</div>
+      <div class="ts">Trump said "very soon" on Air Force One. Hegseth said "until the enemy is totally and decisively defeated." These are contradictory on the same day. The market is pricing the Trump comment; the board prices both together as a contradiction gap. The AP article itself notes "such moves have been quick to reverse since the war in Iran began" — confirming this is a pattern of intraday volatility, not a structural shift. E domain correctly codes 1.</div>
+    </div>
+  </div>
+
+  <div class="note">Falsification verdict: NOT MET. The intraday oil drop is a political-statement-driven market move that does not reflect any change in physical supply, maritime normalization, or escort operationalization. The E domain tripwire (oil infrastructure burning) remains active. Watch Brent over next 48–72 hours — if it holds below $95 without physical change, revisit. If it reverses back above $100, today's move is confirmed as noise.</div>
+</div>
+
+<!-- DELTA -->
+<div id="delta" class="panel">
+  <div class="sec">Key new developments — Mar 16</div>
+
+  <div class="flash">
+    <div class="flash-l">Iranian oil facilities burning — WHO health warning issued</div>
+    <div class="flash-t">Israel struck Iranian oil facilities. Massive fires visible near Tehran. WHO warned of severe health impacts. Trump administration asked Israel to stop targeting oil infrastructure. Iran's declared counter-doctrine is now legally triggered: any oil infrastructure strike = all American energy assets in region are targets. Iran retaliating against U.S. embassies, military installations, and oil infrastructure per Britannica.</div>
+  </div>
+
+  <div class="flash">
+    <div class="flash-l">RAF Akrotiri Cyprus struck — first direct hit on sovereign NATO territory</div>
+    <div class="flash-t">Hezbollah drone struck Britain's Akrotiri military base on Cyprus (Britannica confirmed). This is the clearest escalation of the NATO dimension yet — not debris from interception, a direct deliberate strike. Article 4 consultations covering Turkey (3 Iranian missile intercepts) and now Cyprus. Article 5 threshold has not been invoked. UK confirmed defensive use of Akrotiri for strike support.</div>
+  </div>
+
+  <div class="flash">
+    <div class="flash-l">AWS data centers in UAE struck — 3 facilities, web outages reported</div>
+    <div class="flash-t">Three Amazon Web Services data centers in the UAE struck by drones, causing "sparks and fire" and "major structural damage" to 2 facilities. Internal water levels up to 4cm, cooling and air systems failed. This is the first confirmed strike on major cloud infrastructure in the conflict. Implications for Middle East digital infrastructure, financial systems, and the fracture board's downstream canary layer (data center build).</div>
+  </div>
+
+  <div class="alert">
+    <div class="alert-l">IRGC hardened against ceasefire — Hormuz is their war-winning asset</div>
+    <div class="alert-t">Iranian sources told diplomatic outlets that the IRGC believes losing control of the strait would "effectively determine the outcome of the war" — they are therefore strongly opposed to ceasefire negotiations at this stage. This is the clearest explanation yet for why Iran's position is so rigid: Hormuz is not a bargaining chip, it is the war itself for the IRGC. Any ceasefire that requires reopening Hormuz is, in their calculus, a defeat.</div>
+  </div>
+
+  <div class="good">
+    <div class="good-l">Iran's condition for negotiation is now explicitly stated</div>
+    <div class="good-t">Araghchi: negotiations only if U.S. and Israeli strikes stop first + compensation for damages + no guarantees of future attacks. This is the first time Iran's conditions have been publicly stated in complete form. It is a maximalist position but it is now on record — which means it can be tested as a falsification condition. If U.S./Israel halt strikes and Iran still refuses to negotiate, the thesis that Iran has any negotiating interest is falsified.</div>
+  </div>
+
+  <div class="shift">
+    <div class="shift-l">Houthis — explicitly NOT entering for tactical reasons</div>
+    <div class="shift-t">Wikipedia update: Houthis released only 3 subdued declarations by Mar 7, characterized as "more disciplined" than usual. Influenced by 2025 U.S.-Houthi ceasefire — not wanting to open multiple fronts in ongoing Yemeni civil war. This is a significant update: the Houthi non-entry is a deliberate strategic choice to preserve their own war, not inability or disinterest. The dual-chokepoint scenario remains latent but is being consciously held back.</div>
+  </div>
+
+  <div class="note">Total conflict dead: 2,000+ (Iran, Lebanon, Israel). Lebanon: 826 killed, 800,000+ displaced since Feb 28. Iran issued "Hope Cards" — subsidized goods coupons for babies born after March 19, signaling domestic economic triage. Iran refused FIFA World Cup 2026 participation. Iran's currency in freefall exacerbated by war. These are durability indicators — the regime is absorbing damage but showing domestic rationing behavior.</div>
+</div>
+
+<!-- LOG -->
+<div id="log" class="panel">
+  <div class="sec">17-day escalation watch log</div>
+  <div style="overflow-x:auto">
+  <table>
+    <tr><th>Date</th><th>M</th><th>S</th><th>I</th><th>MD</th><th>E</th><th>RS</th><th>DO</th><th>Score</th><th>Class</th></tr>
+    <tr><td>Feb 28</td><td class="v1">1</td><td class="v1">1</td><td class="v1">1</td><td class="v1">1</td><td class="v0">0</td><td class="v1">1</td><td class="v0">0</td><td class="sc">5</td><td><span class="badge amber">High</span></td></tr>
+    <tr><td>Mar 1</td><td class="v1">1</td><td class="v1">1</td><td class="v1">1</td><td class="v1">1</td><td class="v0">0</td><td class="v1">1</td><td class="v0">0</td><td class="sc">5</td><td><span class="badge amber">High</span></td></tr>
+    <tr><td>Mar 2</td><td class="v1">1</td><td class="v1">1</td><td class="v1">1</td><td class="v1">1</td><td class="v1">1</td><td class="v1">1</td><td class="v0">0</td><td class="sc" style="color:#E24B4A">6</td><td><span class="badge red">Critical</span></td></tr>
+    <tr><td>Mar 3</td><td class="v1">1</td><td class="v1">1</td><td class="v1">1</td><td class="v0">0</td><td class="v1">1</td><td class="v1">1</td><td class="v0">0</td><td class="sc">5</td><td><span class="badge amber">High</span></td></tr>
+    <tr><td>Mar 4–7</td><td class="v1">1</td><td class="v1">1</td><td class="vna">mix</td><td class="v0">0</td><td class="v1">1</td><td class="v1">1</td><td class="v0">0</td><td class="sc" style="color:#185FA5">4</td><td><span class="badge blue">Elevated</span></td></tr>
+    <tr><td>Mar 8</td><td class="v1">1</td><td class="v1">1</td><td class="v1">1</td><td class="v0">0</td><td class="v1">1</td><td class="v1">1</td><td class="v0">0</td><td class="sc">5</td><td><span class="badge amber">High</span></td></tr>
+    <tr><td>Mar 9</td><td class="v0">0</td><td class="v1">1</td><td class="v0">0</td><td class="v0">0</td><td class="v1">1</td><td class="v1">1</td><td class="v0">0</td><td class="sc" style="color:#3B6D11">3</td><td><span class="badge green">Baseline</span></td></tr>
+    <tr><td>Mar 10–11</td><td class="v1">1</td><td class="v1">1</td><td class="v1">1</td><td class="v1">1</td><td class="v1">1</td><td class="v1">1</td><td class="v0">0</td><td class="sc" style="color:#E24B4A">6</td><td><span class="badge red">Critical</span></td></tr>
+    <tr><td>Mar 12</td><td class="v1">1</td><td class="v1">1</td><td class="vna">NA</td><td class="v1">1</td><td class="v1">1</td><td class="v1">1</td><td class="v0">0</td><td class="sc">5</td><td><span class="badge amber">High</span></td></tr>
+    <tr><td>Mar 13–14</td><td class="v1">1</td><td class="v1">1</td><td class="v1">1</td><td class="v1">1</td><td class="v1">1</td><td class="v1">1</td><td class="v0">0</td><td class="sc" style="color:#E24B4A">6</td><td><span class="badge red">Critical</span></td></tr>
+    <tr><td>Mar 15</td><td class="v1">1</td><td class="v1">1</td><td class="v1">1</td><td class="v1">1</td><td class="v1">1</td><td class="v1">1</td><td class="vm1">−1</td><td class="sc" style="color:#854F0B">5</td><td><span class="badge amber">High</span></td></tr>
+    <tr style="background:var(--color-background-secondary)"><td><strong>Mar 16</strong></td><td class="v1">1</td><td class="v1">1</td><td class="v1">1</td><td class="v1">1</td><td class="v1">1</td><td class="v1">1</td><td class="v0">0</td><td class="sc" style="color:#E24B4A">6</td><td><span class="badge red">Critical</span></td></tr>
+  </table>
+  </div>
+  <div class="note" style="margin-top:.75rem">17-day pattern: score has never fallen below 3. Critical (6) on 9 of 17 days. Only one genuine low point (Mar 9, score 3). The Mar 15 DO offset was the first and only diplomacy signal — it lasted one day and did not produce an operative framework. The conflict has not produced a single day of confirmed de-escalation in 17 days.</div>
+</div>
+
+<div style="margin-top:1rem;display:flex;gap:.5rem;flex-wrap:wrap">
+  <button onclick="sendPrompt('Has Iran executed any retaliation against American energy infrastructure following the Israeli strikes on Iranian oil facilities?')">Iran energy retaliation ↗</button>
+  <button onclick="sendPrompt('Has Brent crude held below $100 into Monday evening, or has it reversed back above — falsification test update?')">Oil price falsification check ↗</button>
+  <button onclick="sendPrompt('Has the UK confirmed the RAF Akrotiri Cyprus strike and triggered NATO Article 4 consultations for Cyprus?')">Cyprus NATO Article 4 ↗</button>
+</div>
+</div>
+
+<script>
+function sw(id){
+  document.querySelectorAll('.tab').forEach(t=>t.classList.remove('on'));
+  document.querySelectorAll('.panel').forEach(p=>p.classList.remove('on'));
+  document.getElementById(id).classList.add('on');
+  event.target.classList.add('on');
+}
+</script>

@@ -1,0 +1,23 @@
+
+{
+  "placeholderImages": [
+    {
+      "id": "conflict-1",
+      "description": "Military base in desert",
+      "imageUrl": "https://picsum.photos/seed/conflict1/600/400",
+      "imageHint": "military desert"
+    },
+    {
+      "id": "nuclear-1",
+      "description": "Nuclear power plant silhouette",
+      "imageUrl": "https://picsum.photos/seed/nuclear1/600/400",
+      "imageHint": "nuclear plant"
+    },
+    {
+      "id": "maritime-1",
+      "description": "Oil tanker at sea",
+      "imageUrl": "https://picsum.photos/seed/maritime1/600/400",
+      "imageHint": "oil tanker"
+    }
+  ]
+}
