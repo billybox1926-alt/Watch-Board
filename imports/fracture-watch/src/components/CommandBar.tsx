@@ -21,7 +21,7 @@ export function CommandBar({ searchQuery, onSearchChange, onAnalyze, liveSync, o
 
   useEffect(() => {
     if (!liveSync) return;
-    const interval = setInterval(() => setLastRefresh(new Date()), 30000);
+    const interval = setInterval(() => setLastRefresh(new Date()), 1000);
     return () => clearInterval(interval);
   }, [liveSync]);
 
@@ -30,7 +30,7 @@ export function CommandBar({ searchQuery, onSearchChange, onAnalyze, liveSync, o
       <div className="flex flex-wrap items-center justify-between gap-3">
         <div className="flex items-center gap-3">
           <div>
-            <h1 className="text-base font-semibold tracking-tight text-foreground leading-none">Fracture Board</h1>
+            <h1 className="text-base font-semibold tracking-tight text-foreground leading-none">Fracture Board v1 LIVE</h1>
             <p className="text-[10px] font-mono text-muted-foreground tracking-wide uppercase mt-0.5">Strategic Intelligence</p>
           </div>
           <StatusBadge status="Red" size="md" pulse />
@@ -57,19 +57,21 @@ export function CommandBar({ searchQuery, onSearchChange, onAnalyze, liveSync, o
 
         <div className="flex items-center gap-2.5 order-2 md:order-3">
           <button
-            onClick={onToggleSync}
-            className={`flex items-center gap-1 px-2 py-1 rounded text-[10px] font-mono transition-colors border ${
-              liveSync
-                ? "border-primary/20 text-primary"
-                : "border-border text-muted-foreground"
-            }`}
-          >
+  onClick={onToggleSync}
+  className={`flex items-center gap-2 px-3 py-1.5 rounded-md text-xs font-mono transition-all border ${
+    liveSync
+      ? "border-primary bg-primary/10 text-primary"
+      : "border-status-amber bg-status-amber/10 text-status-amber"
+  }`}
+>
             <Radio className={`h-2.5 w-2.5 ${liveSync ? "animate-pulse-slow" : ""}`} />
             {liveSync ? "LIVE" : "PAUSED"}
           </button>
           <span className="text-[10px] font-mono text-muted-foreground hidden sm:block">
-            {lastRefresh.toLocaleTimeString("en-US", { hour12: false })}
-          </span>
+  {liveSync
+    ? lastRefresh.toLocaleTimeString("en-US", { hour12: false })
+    : "PAUSED"}
+</span>
           <button
             onClick={onAnalyze}
             className="flex items-center gap-1 px-2.5 py-1.5 rounded-md bg-primary/10 text-primary text-[10px] font-medium hover:bg-primary/15 transition-colors border border-primary/20"
